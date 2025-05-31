@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ProductsService } from 'src/products/products.service';
-import { initialData, SeedProduct } from './data/seed-data';
+import { initialData } from './data/seed-data';
 import { CreateProductDto } from 'src/products/dto/create-product.dto';
 
 
