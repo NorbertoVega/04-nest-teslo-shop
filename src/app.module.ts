@@ -9,6 +9,7 @@ import { FilesModule } from './files/files.module';
 import { EnvConfiguration } from './config/env.config';
 import { JoiValidationScheema } from './config/joi.validation';
 import { ServeStaticModule } from '@nestjs/serve-static';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -39,6 +40,8 @@ import { ServeStaticModule } from '@nestjs/serve-static';
     SeedModule,
 
     FilesModule,
+
+    AuthModule,
   ],
   controllers: [],
   providers: [],
