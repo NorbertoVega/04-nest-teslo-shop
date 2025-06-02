@@ -39,15 +39,28 @@ export class ProductsService {
   }
 
   async findAll(paginationDto: PaginationDto) {
-    const { limit = 10, offset = 0 } = paginationDto;
+    let { limit, offset } = paginationDto;
 
-    const products = await this.productRepository.find({
-      take: limit,
-      skip: offset,
-      relations: {
-        images: true
+    let products: Product[];
+
+    if (!limit && !offset) {
+      products = await this.productRepository.find({});
+    }
+    else {
+      if (!limit) {
+        limit = 10;
       }
-    });
+      if (!offset) {
+        offset = 0;
+      }
+      products = await this.productRepository.find({
+        take: limit,
+        skip: offset,
+        relations: {
+          images: true
+        }
+      });
+    }
 
     return products.map(({ images, ...rest }) => ({
       ...rest,
