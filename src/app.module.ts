@@ -10,6 +10,7 @@ import { EnvConfiguration } from './config/env.config';
 import { JoiValidationScheema } from './config/joi.validation';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { AuthModule } from './auth/auth.module';
+import { MessageWsModule } from './message-ws/message-ws.module';
 
 @Module({
   imports: [
@@ -42,6 +43,8 @@ import { AuthModule } from './auth/auth.module';
     FilesModule,
 
     AuthModule,
+
+    MessageWsModule,
   ],
   controllers: [],
   providers: [],
